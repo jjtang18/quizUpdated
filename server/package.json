@@ -12,9 +12,15 @@
     "svelte": "^3.0.0"
   },
   "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "helmet": "^4.1.1",
+    "moment": "^2.29.0",
+    "mongoose": "^5.10.8",
     "sirv-cli": "^1.0.1"
   },
   "scripts": {
+    "seed": "node ./seed/seed.js",
     "build": "rollup -c",
     "autobuild": "rollup -c -w",
     "dev": "run-p start:dev autobuild",
