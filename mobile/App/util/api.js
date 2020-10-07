@@ -1,7 +1,7 @@
-const BASE_URL = 'http://quiz-updated.jjtang18.vercel.app';
+const BASE_URL = 'https://quiz-updated.jjtang18.vercel.app';
 //not localhost, use computer IP 
 // const BASE_URL ='http://localhost:3000'; //not localhost, use computer IP 
-
+//prod
 export const questionFetch = (path, options = {}) => {
     return fetch(`${BASE_URL}/api${path}`, options).then(res => {
         if (res.ok) {
