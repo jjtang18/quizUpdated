@@ -1,5 +1,5 @@
 import React from 'react';
-import {View,StyleSheet,SafeAreaView,Text,Alert} from 'react-native';
+import { View, StyleSheet, SafeAreaView, Text, Alert } from 'react-native';
 
 import { Button } from '../components/submitButton';
 import { TextField } from '../components/Form';
@@ -42,10 +42,12 @@ class Question extends React.Component {
 
     isCorrect = (userAnswer, correctAnswer) => {
         if (userAnswer === correctAnswer) {
-            return Alert.alert("Correct","You have answered Correctly!")
+            //increment correct count
+            return Alert.alert("Correct", "You have answered Correctly!")
+
         }
         else
-        return Alert.alert("Incorrect", "You have answered Incorrectly!")
+            return Alert.alert("Incorrect", "You have answered Incorrectly!")
     };
 
 
@@ -60,7 +62,7 @@ class Question extends React.Component {
                     <Text style={styles.titleText}>{item.quizQuestion}</Text>
 
                     <Button style={styles.text}
-                    disabled={true}
+                        disabled={true}
                         text={item.answer1}>
                     </Button>
 

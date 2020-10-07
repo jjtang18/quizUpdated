@@ -6,6 +6,8 @@ module.exports = [
         answer3: "209.85.231.104",
         answer4: "66.220.149.25",
         correctAnswer: "B",
+        correctCount: 0,
+        attemptCount: 0,
     },
     {
         quizQuestion: "What kind of fruit was used to name a computer in 1984?",
@@ -14,6 +16,8 @@ module.exports = [
         answer3: "Pear",
         answer4: "Apple",
         correctAnswer: "D",
+        correctCount: 0,
+        attemptCount: 0,
     },
     {
         quizQuestion: "What is the fifth planet from the sun?",
@@ -22,6 +26,8 @@ module.exports = [
         answer3: "Saturn",
         answer4: "Venus",
         correctAnswer: "B",
+        correctCount: 0,
+        attemptCount: 0,
     },
     {
         quizQuestion: "How many planets are in the Solar System?",
@@ -30,6 +36,8 @@ module.exports = [
         answer3: "8",
         answer4: "9",
         correctAnswer: "C",
+        correctCount: 0,
+        attemptCount: 0,
     },
     {
         quizQuestion: "In the Roy Rogers -Dale Evans Museum, you will find Roy and Dales stuffed horses. Roy's horse was named Trigger, which was Dales horse?",
@@ -38,5 +46,7 @@ module.exports = [
         answer3: "Scout",
         answer4: "Tulip",
         correctAnswer: "A",
+        correctCount: 0,
+        attemptCount: 0,
     }
 ];

@@ -9,13 +9,14 @@ class userQuiz extends React.Component {
     loading: true,
     list: []
   };
-
+  //ref didmount and questionFetch for getting values from mongo
   componentDidMount() {
     questionFetch('/quiz/list')
       .then(response => {
         this.setState({
           loading: false,
           list: response.result,
+
         });
       })
       .catch(error => {
