@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 let isConnected;
 
-const DB_URL = 'mongodb+srv://tjin427:trinity@quizdata.xfwdn.mongodb.net/quizData?retryWrites=true&w=majority    ' //link to mine not his;
+const DB_URL = 'mongodb+srv://tjin427:trinity@quizdata.xfwdn.mongodb.net/quizData?retryWrites=true&w=majority' //link to mine not his;
 
 const connectToDatabase = () => {
     if (isConnected) {

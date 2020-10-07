@@ -11,21 +11,39 @@ app.put('*', (req, res) => {
         throw new Error('No document id specified.');
       }
 
-      return Question.findOneAndUpdate(
-        { _id },
-        {
-          $inc: { correctCount: 1 },//if error check here 
-          //increment attempt count
-          // find a way to determine if user answered correctly to increment correctCount
-          $inc: { attemptCount: 1 },
+      if (req.body === "true") {
+        return Question.findOneAndUpdate(
+          { _id },
+          {
+            $inc: { attemptCount: 1 },
+            //if error check here 
+            //increment attempt count
+            // find a way to determine if user answered correctly to increment correctCount
 
-        },
-        {
-          useFindAndModify: true,
-          new: true,
-        }
-      );
-    })
+            $inc: { correctCount: 1 }
+          },
+          {
+            useFindAndModify: true,
+            new: true,
+          }
+        )
+      }
+      else {
+        return Question.findOneAndUpdate(
+          { _id },
+          {
+            $inc: { attemptCount: 1 }
+            //if error check here 
+            //increment attempt count
+            // find a way to determine if user answered correctly to increment correctCount
+          },
+          {
+            useFindAndModify: true,
+            new: true,
+          }
+        )
+      }
+    })//check scope of below
     .then(QuestionItem => {
       res.status(200).json({
         result: QuestionItem,

@@ -3,7 +3,7 @@ import { View, StyleSheet, SafeAreaView, Text, Alert } from 'react-native';
 
 import { Button } from '../components/submitButton';
 import { TextField } from '../components/Form';
-
+import { questionFetch } from '../util/api';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
@@ -39,15 +39,47 @@ class Question extends React.Component {
         updatedItem: null,
         userAnswer: ""
     };
-
     isCorrect = (userAnswer, correctAnswer) => {
         if (userAnswer === correctAnswer) {
             //increment correct count
+            questionFetch(`/quiz/correctStreak`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(true),
+            })
+                .then(() => {
+                    this.props.navigation.popToTop();
+                })
+                .catch(error => {
+                    console.log('create cache error', error);
+                })
+                .finally(() => {
+                    this.setState({ loading: false });
+                });
+
+
+
+
+
             return Alert.alert("Correct", "You have answered Correctly!")
 
         }
-        else
+        else {
+            questionFetch(`/quiz/correctStreak`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(false),
+            })
+
+
+
+
             return Alert.alert("Incorrect", "You have answered Incorrectly!")
+        }
     };
 
 
