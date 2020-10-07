@@ -42,7 +42,7 @@ class Question extends React.Component {
     isCorrect = (userAnswer, correctAnswer) => {
         if (userAnswer === correctAnswer) {
             //increment correct count
-            questionFetch(`/quiz/correctStreak`, {
+            questionFetch(`/quiz/log-find`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ class Question extends React.Component {
 
         }
         else {
-            questionFetch(`/quiz/correctStreak`, {
+            questionFetch(`/quiz/log-find`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',

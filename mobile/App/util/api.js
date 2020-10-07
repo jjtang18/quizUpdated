@@ -1,4 +1,4 @@
-const BASE_URL = 'https://quiz-updated.jjtang18.vercel.app';
+const BASE_URL = 'https://quiz-updated-pfobpzi60.vercel.app';
 //not localhost, use computer IP 
 // const BASE_URL ='http://localhost:3000'; //not localhost, use computer IP 
 //prod
