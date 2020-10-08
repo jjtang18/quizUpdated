@@ -38,17 +38,18 @@ class Question extends React.Component {
     state = {
         updatedItem: null,
         userAnswer: "",
-        isCorrect: false,
+
     };
     isCorrect = (userAnswer, correctAnswer, _id) => {
+
         if (userAnswer === correctAnswer) {
             //increment correct count
             questionFetch(`/quiz/correctStreak?_id=${_id}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-type': 'application/json',
+                    'Content-type': 'text/html',
                 },
-                body: JSON.stringify({ isCorrect: true }),
+                body: 'true',
             })
                 .then(() => {
                     this.props.navigation.popToTop();
@@ -64,12 +65,13 @@ class Question extends React.Component {
 
         }
         else {
+            this.setState({ isCorrect: false });
             questionFetch(`/quiz/correctStreak?_id=${_id}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-type': 'application/json',
+                    'Content-type': 'text/html',
                 },
-                body: JSON.stringify({ isCorrect: false }),
+                body: 'false',
             })
                 .then(() => {
                     this.props.navigation.popToTop();
