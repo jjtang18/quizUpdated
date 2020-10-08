@@ -47,7 +47,7 @@ class Question extends React.Component {
                 headers: {
                     'Content-type': 'application/json',
                 },
-                body: JSON.stringify(1),
+                body: JSON.stringify({ "isCorrect": true }),
             })
                 .then(() => {
                     this.props.navigation.popToTop();
@@ -72,7 +72,7 @@ class Question extends React.Component {
                 headers: {
                     'Content-type': 'application/json',
                 },
-                body: JSON.stringify(0),
+                body: JSON.stringify({ "isCorrect": false }),
             })
 
 
