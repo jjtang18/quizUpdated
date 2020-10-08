@@ -15,12 +15,7 @@ app.put('*', (req, res) => {
         return Question.findOneAndUpdate(
           { _id },
           {
-            $inc: { attemptCount: 1 },
-            //if error check here 
-            //increment attempt count
-            // find a way to determine if user answered correctly to increment correctCount
-
-            $inc: { correctCount: 1 }
+            $inc: { attemptCount: 1, correctCount: 1 }
           },
           {
             useFindAndModify: true,
@@ -33,9 +28,6 @@ app.put('*', (req, res) => {
           { _id },
           {
             $inc: { attemptCount: 1 }
-            //if error check here 
-            //increment attempt count
-            // find a way to determine if user answered correctly to increment correctCount
           },
           {
             useFindAndModify: true,
