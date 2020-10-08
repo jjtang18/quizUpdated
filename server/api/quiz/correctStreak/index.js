@@ -11,7 +11,7 @@ app.put('*', (req, res) => {
         throw new Error('No document id specified.');
       }
 
-      if (req.body === "true") {
+      if (req.body.toString() === "true") {
         return Question.findOneAndUpdate(
           { _id },
           {
