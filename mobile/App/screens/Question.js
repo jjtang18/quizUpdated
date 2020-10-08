@@ -37,7 +37,8 @@ class Question extends React.Component {
 
     state = {
         updatedItem: null,
-        userAnswer: ""
+        userAnswer: "",
+        isCorrect: false,
     };
     isCorrect = (userAnswer, correctAnswer, _id) => {
         if (userAnswer === correctAnswer) {
@@ -47,7 +48,7 @@ class Question extends React.Component {
                 headers: {
                     'Content-type': 'application/json',
                 },
-                body: JSON.stringify({ 'isCorrect': 'true' }),
+                body: JSON.stringify({ isCorrect: true }),
             })
                 .then(() => {
                     this.props.navigation.popToTop();
@@ -68,7 +69,7 @@ class Question extends React.Component {
                 headers: {
                     'Content-type': 'application/json',
                 },
-                body: JSON.stringify({ 'isCorrect': 'false' }),
+                body: JSON.stringify({ isCorrect: false }),
             })
                 .then(() => {
                     this.props.navigation.popToTop();
