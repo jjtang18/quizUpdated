@@ -11,30 +11,16 @@ app.put('*', (req, res) => {
         throw new Error('No document id specified.');
       }
 
-      if (req.body.isCorrect == "true") {
-        return Question.findOneAndUpdate(
-          { _id },
-          {
-            $inc: { attemptCount: 1, correctCount: 1 }
-          },
-          {
-            useFindAndModify: true,
-            new: true,
-          }
-        )
-      }
-      else {
-        return Question.findOneAndUpdate(
-          { _id },
-          {
-            $inc: { attemptCount: 1 }
-          },
-          {
-            useFindAndModify: true,
-            new: true,
-          }
-        )
-      }
+      return Question.findOneAndUpdate(
+        { _id },
+        {
+          $inc: { attemptCount: 1, correctCount: 1 }
+        },
+        {
+          useFindAndModify: true,
+          new: true,
+        }
+      )
     })//check scope of below
     .then(QuestionItem => {
       res.status(200).json({
