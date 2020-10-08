@@ -46,11 +46,6 @@ class Question extends React.Component {
             //increment correct count
             questionFetch(`/quiz/correctStreak?_id=${_id}`, {
                 method: 'PUT',
-                headers: {
-                    'Content-Type': 'text/plain',
-                    //'Content-Length': 'correct'.length.toString(),
-                },
-                body: { "isCorrect": "true" }
             })
                 .then(() => {
                     this.props.navigation.popToTop();
@@ -67,12 +62,8 @@ class Question extends React.Component {
         }
         else {
             this.setState({ isCorrect: false });
-            questionFetch(`/quiz/correctStreak?_id=${_id}`, {
+            questionFetch(`/quiz/attemptStreak?_id=${_id}`, {
                 method: 'PUT',
-                headers: {
-                    'Content-type': 'application/json',
-                },
-                body: JSON.stringify(wrong),
             })
                 .then(() => {
                     this.props.navigation.popToTop();
