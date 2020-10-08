@@ -49,7 +49,7 @@ class Question extends React.Component {
                 headers: {
                     'Content-type': 'text/html',
                 },
-                body: "true"
+                body: true
             })
                 .then(() => {
                     this.props.navigation.popToTop();
@@ -71,7 +71,7 @@ class Question extends React.Component {
                 headers: {
                     'Content-type': 'text/html',
                 },
-                body: "false"
+                body: null
             })
                 .then(() => {
                     this.props.navigation.popToTop();
