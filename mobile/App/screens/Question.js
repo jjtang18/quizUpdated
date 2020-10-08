@@ -39,15 +39,15 @@ class Question extends React.Component {
         updatedItem: null,
         userAnswer: ""
     };
-    isCorrect = (userAnswer, correctAnswer) => {
+    isCorrect = (userAnswer, correctAnswer, _id) => {
         if (userAnswer === correctAnswer) {
             //increment correct count
-            questionFetch(`/quiz/correctStreak`, {
+            questionFetch(`/quiz/correctStreak?_id=${_id}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-Type': 'application/json',
+                    'Content-type': 'text/plain',
                 },
-                body: JSON.stringify(1),
+                body: "1",
             })
                 .then(() => {
                     this.props.navigation.popToTop();
@@ -67,12 +67,8 @@ class Question extends React.Component {
 
         }
         else {
-            questionFetch(`/quiz/correctStreak`, {
+            questionFetch(`/quiz/correctStreak?_id=${_id}`, {
                 method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(0),
             })
 
 
@@ -120,7 +116,7 @@ class Question extends React.Component {
 
                     <Button
                         text="Enter"
-                        onPress={() => this.isCorrect((this.state.userAnswer), (item.correctAnswer))}
+                        onPress={() => this.isCorrect((this.state.userAnswer), (item.correctAnswer), (item._id))}
                     />
 
 
