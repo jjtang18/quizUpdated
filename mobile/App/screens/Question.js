@@ -48,9 +48,9 @@ class Question extends React.Component {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'text/plain',
-                    'Content-Length': 'correct'.length.toString(),
+                    //'Content-Length': 'correct'.length.toString(),
                 },
-                body: 'correct',
+                body: { "isCorrect": "true" }
             })
                 .then(() => {
                     this.props.navigation.popToTop();
