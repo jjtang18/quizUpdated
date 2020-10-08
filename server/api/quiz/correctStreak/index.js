@@ -6,13 +6,12 @@ app.put('*', (req, res) => {
   connectDB()
     .then(() => {
       const { _id } = req.query;
-      const { isCorrect } = req.body.isCorrect;
 
       if (!_id) {
         throw new Error('No document id specified.');
       }
 
-      if (isCorrect == "true") {
+      if (req.body.isCorrect == "true") {
         return Question.findOneAndUpdate(
           { _id },
           {
