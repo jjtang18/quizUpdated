@@ -47,9 +47,9 @@ class Question extends React.Component {
             questionFetch(`/quiz/correctStreak?_id=${_id}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-type': 'text/html',
+                    'Content-type': 'application/json',
                 },
-                body: true
+                body: JSON.stringify({ isCorrect: 'true' })
             })
                 .then(() => {
                     this.props.navigation.popToTop();
@@ -69,9 +69,9 @@ class Question extends React.Component {
             questionFetch(`/quiz/correctStreak?_id=${_id}`, {
                 method: 'PUT',
                 headers: {
-                    'Content-type': 'text/html',
+                    'Content-type': 'application/json',
                 },
-                body: null
+                body: JSON.stringify({ isCorrect: 'false' })
             })
                 .then(() => {
                     this.props.navigation.popToTop();
