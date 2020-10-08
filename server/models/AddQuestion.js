@@ -8,7 +8,7 @@ const QuestionSchema = new mongoose.Schema({
   answer4: { type: String, required: true },
   correctAnswer: { type: String, required: true },
   correctCount: { type: Number, default: 0 },
-  attemptCount: { type: Number, default: 0 },
+  attemptCount: { type: Number, default: 0 }
 });
 
 module.exports = mongoose.model('Question', QuestionSchema);
