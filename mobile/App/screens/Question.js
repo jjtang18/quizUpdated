@@ -47,7 +47,7 @@ class Question extends React.Component {
                 headers: {
                     'Content-type': 'application/json',
                 },
-                body: JSON.stringify({ "isCorrect": true }),
+                body: JSON.stringify({ 'isCorrect': 'true' }),
             })
                 .then(() => {
                     this.props.navigation.popToTop();
@@ -59,10 +59,6 @@ class Question extends React.Component {
                     this.setState({ loading: false });
                 });
 
-
-
-
-
             return Alert.alert("Correct", "You have answered Correctly!")
 
         }
@@ -72,11 +68,17 @@ class Question extends React.Component {
                 headers: {
                     'Content-type': 'application/json',
                 },
-                body: JSON.stringify({ "isCorrect": false }),
+                body: JSON.stringify({ 'isCorrect': 'false' }),
             })
-
-
-
+                .then(() => {
+                    this.props.navigation.popToTop();
+                })
+                .catch(error => {
+                    console.log('create cache error', error);
+                })
+                .finally(() => {
+                    this.setState({ loading: false });
+                });
 
             return Alert.alert("Incorrect", "You have answered Incorrectly!")
         }
