@@ -49,8 +49,7 @@ const MainStack = createStackNavigator({
     navigationOptions: {
       headerTitle: "Statistics"
     }
-  }
-
+  },
 });
 
 export default createAppContainer(MainStack);
